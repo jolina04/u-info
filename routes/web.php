@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::view('/login', 'account.login');
+
+Route::any('/login', 'Account\LoginController@index');
+
+Route::fallback(function () {
+    return 'You can do it with God!';
 });
+
+/*
+ * sample use of view routing
+ * Route::view('/login', 'account.login', ['name'=>'jolina']);
+ */

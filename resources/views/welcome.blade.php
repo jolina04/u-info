@@ -1,11 +1,9 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>U-INFO</title>
-    </head>
-    <body>
-        <div>Sign-up</div>
-    </body>
-</html>
+@extends('shared.layout')
+
+@section('title')
+    U-INFO - Login
+@endsection
+
+@section('content')
+    hello there
+@endsection
