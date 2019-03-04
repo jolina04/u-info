@@ -13,7 +13,11 @@
 
 //Route::view('/login', 'account.login');
 
-Route::any('/login', 'Account\LoginController@index');
+Route::any('/login', function(){
+   return 'not authenticated';
+})->name('login');
+
+Route::any('/add', 'Account\LoginController@add');
 Route::any('/do', 'Account\LoginController@doAwesome');
 
 Route::fallback(function () {
