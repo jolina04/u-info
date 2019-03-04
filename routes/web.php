@@ -14,6 +14,7 @@
 //Route::view('/login', 'account.login');
 
 Route::any('/login', 'Account\LoginController@index');
+Route::any('/do', 'Account\LoginController@doAwesome');
 
 Route::fallback(function () {
     return 'You can do it with God!';

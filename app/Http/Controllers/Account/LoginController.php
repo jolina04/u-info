@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
 use App\Services\MathServices;
+use App\Services\AwesomeServiceInterface;
 
 class LoginController extends Controller
 {
@@ -16,5 +17,11 @@ class LoginController extends Controller
 
     public function index(){
         return $this->math->add(4,6);
+    }
+
+    public function doAwesome(AwesomeServiceInterface $awesome_service)
+    {
+        $awesome_service->doAwesomeThing();
+        return 'okay';
     }
 }
