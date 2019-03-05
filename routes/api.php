@@ -13,25 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::get('try', function(){
-    return response([1,2,3], 200)
-        ->header('Access-Control-Allow-Origin', '*');
+    return response([1,2,3], 200);
 });
 
 
-Route::post('login', 'AuthController@login');
-Route::post('signup', 'AuthController@signup');
+Route::post('login', 'Account\LoginController@login');
+Route::post('signup', 'Account\LoginController@signup');
 
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::get('logout', 'AuthController@logout');
-    Route::get('user', 'AuthController@user');
+    Route::get('logout', 'Account\LoginController@logout');
+    Route::get('user', 'Account\LoginController@user');
 });
 
 Route::get('/res', function(){
     return [1,2,3];
-});
+} );
 

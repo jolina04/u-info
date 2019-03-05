@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Services\MathServices;
 use App\Services\AwesomeServiceInterface;
 use App\User;
+use Illuminate\http\request;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -40,7 +43,7 @@ class LoginController extends Controller
         $user->save();
         return response()->json([
             'message' => 'Successfully created user!'
-        ], 201)->header('Access-Control-Allow-Origin', '*');
+        ], 201);
     }
 
     /**
@@ -63,7 +66,7 @@ class LoginController extends Controller
         $credentials = request(['email', 'password']);
         if(!Auth::attempt($credentials))
             return response()->json([
-                'message' => 'Unauthorized'
+                'message' => 'Unauthorized phowsxz'
             ], 401);
         $user = $request->user();
         $tokenResult = $user->createToken('Personal Access Token');
@@ -87,7 +90,7 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $request->user()->token()->revoke();
+        $request->user()->token()->delete();
         return response()->json([
             'message' => 'Successfully logged out'
         ]);
